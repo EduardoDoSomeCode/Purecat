@@ -41,25 +41,5 @@
     "tailwindcss": "^3.4.0",
     "typescript": "^5.3.0",
     "vite": "^5.0.0"
-  },
-  "build": {
-    "appId": "com.purecat.editor",
-    "productName": "PureCat",
-    "directories": {
-      "output": "dist"
-    },
-    "extraResources": [
-      {
-        "from": "python_env",
-        "to": "python_env",
-        "filter": ["**/*"]
-      }
-    ],
-    "linux": {
-      "target": ["AppImage", "deb"],
-      "category": "AudioVideo",
-      "icon": "assets/icon.png",
-      "maintainer": "PureCat Team <team@purecat.app>"
-    }
   }
 }

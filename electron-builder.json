@@ -24,7 +24,8 @@
       "deb"
     ],
     "category": "AudioVideo",
-    "icon": "assets/icon.png"
+    "icon": "assets/icon.png",
+    "maintainer": "PureCat Team <team@purecat.app>"
   },
   "win": {
     "target": [
