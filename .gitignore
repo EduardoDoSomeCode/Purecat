@@ -3,9 +3,9 @@ node_modules/
 python_env/
 
 # Build outputs
-dist/
-renderer/
-main/
+/dist/
+/renderer/
+/main/
 *.log
 
 # IDE

@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 59 130 246;
+    --color-dark-bg: 15 23 42;
+    --color-dark-surface: 30 41 59;
+    --color-dark-border: 51 65 85;
+  }
+
+  * {
+    @apply border-dark-700;
+  }
+
+  html,
+  body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    @apply bg-dark-950 text-white antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  #root {
+    @apply h-full w-full flex flex-col;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-dark-950 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary-600 hover:bg-primary-700 text-white focus:ring-primary-500;
+  }
+
+  .btn-secondary {
+    @apply btn bg-dark-700 hover:bg-dark-600 text-white focus:ring-dark-500 border border-dark-600;
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent hover:bg-dark-800 text-dark-300 focus:ring-dark-600;
+  }
+
+  .input {
+    @apply w-full px-3 py-2 bg-dark-800 border border-dark-600 rounded-lg text-white placeholder-dark-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-150;
+  }
+
+  .select {
+    @apply input appearance-none bg-dark-800;
+  }
+
+  .slider {
+    @apply w-full h-2 bg-dark-700 rounded-lg appearance-none cursor-pointer accent-primary-600;
+  }
+
+  .slider::-webkit-slider-thumb {
+    @apply appearance-none w-5 h-5 bg-primary-600 rounded-full border-2 border-white shadow-lg transition-transform duration-100 hover:scale-110;
+  }
+
+  .card {
+    @apply bg-dark-900 border border-dark-700 rounded-xl overflow-hidden;
+  }
+
+  .panel {
+    @apply bg-dark-900/50 backdrop-blur-sm border border-dark-700/50 rounded-xl;
+  }
+
+  .timeline-track {
+    @apply h-24 bg-dark-800 border-y border-dark-700 relative overflow-hidden;
+  }
+
+  .waveform-bar {
+    @apply bg-primary-500/80 rounded-sm transition-all duration-75 hover:bg-primary-400;
+  }
+
+  .waveform-bar--silence {
+    @apply bg-red-400/30 hover:bg-red-300/50;
+  }
+
+  .cut-region {
+    @apply absolute inset-y-0 bg-red-500/20 border-x border-red-500/50 cursor-grab;
+  }
+
+  .tooltip {
+    @apply absolute z-50 px-2 py-1 bg-dark-900 border border-dark-600 rounded text-xs text-dark-300 pointer-events-none;
+  }
+
+  .subtitle-text {
+    @apply inline-block text-white text-base font-semibold text-center leading-snug;
+    transform-origin: bottom center;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.45);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.65), 0 1px 3px rgba(0, 0, 0, 0.5);
+    padding: 4px 12px;
+    border-radius: 6px;
+    max-width: 90%;
+  }
+
+  .sub-fade {
+    animation: sub-fade 0.5s ease both;
+  }
+
+  .sub-pop {
+    animation: sub-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+
+  .sub-squash {
+    animation: sub-squash 0.5s ease-out both;
+  }
+
+  .word-counter {
+    @apply text-xs font-mono text-white/80 bg-black/50 px-1.5 py-0.5 rounded;
+  }
+}
+
+@keyframes sub-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes sub-pop {
+  0% { opacity: 0; transform: scale(0.5); }
+  70% { opacity: 1; transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes sub-squash {
+  0% { opacity: 0; transform: scale(1.5, 0.4); }
+  55% { opacity: 1; transform: scale(0.92, 1.12); }
+  100% { opacity: 1; transform: scale(1, 1); }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.dark.600') theme('colors.dark.800');
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-dark-800;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-dark-600 rounded hover:bg-dark-500;
+  }
+
+  .scrollbar-panel {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.dark.500') theme('colors.dark.800');
+    overscroll-behavior: contain;
+  }
+
+  .scrollbar-panel::-webkit-scrollbar {
+    @apply w-2.5;
+  }
+
+  .scrollbar-panel::-webkit-scrollbar-track {
+    @apply bg-dark-800;
+  }
+
+  .scrollbar-panel::-webkit-scrollbar-thumb {
+    @apply bg-dark-500 rounded hover:bg-dark-400;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
